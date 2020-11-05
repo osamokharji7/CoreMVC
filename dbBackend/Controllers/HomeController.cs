@@ -18,11 +18,6 @@ namespace dbBackend.Controllers
     {
         private UoW unitOfwork= new UoW();
 
-        public HomeController()
-        {
-
-        }
-        
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -57,7 +52,8 @@ namespace dbBackend.Controllers
         }
         public string GetEmployeeById([FromBody] HelperModels post_data)
         {
-            return UoW.employeeRepository.GetTById(post_data.Id);
+            //return JsonConvert.SerializeObject(post_data);
+            return UoW.employeeRepository.GetTById(1);
         }
 
         public IActionResult Index()
