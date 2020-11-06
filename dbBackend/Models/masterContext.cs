@@ -105,7 +105,6 @@ namespace dbBackend.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-
                 entity.Property(e => e.SalId).HasColumnName("salID");
 
                 entity.Property(e => e.Structure)
