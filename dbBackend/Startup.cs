@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using dbBackend.Repositories;
 using dbBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace dbBackend
 {
@@ -26,6 +27,7 @@ namespace dbBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<masterContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
             services.AddScoped<IGeneralRepository<Employee>, GeneralRepository<Employee>>();
         }
 

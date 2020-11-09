@@ -16,9 +16,7 @@ namespace dbBackend.Models
         }
 
         public virtual DbSet<Designation> Designation { get; set; }
-        public virtual DbSet<Emp> Emp { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Salary> Salary { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,29 +41,7 @@ namespace dbBackend.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Emp>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("emp");
-
-                entity.Property(e => e.City)
-                    .HasColumnName("city")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Name)
-                    .HasColumnName("name")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Salary)
-                    .HasColumnName("salary")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
+         
 
             modelBuilder.Entity<Employee>(entity =>
             {
@@ -94,27 +70,7 @@ namespace dbBackend.Models
                     .HasConstraintName("FK__employee__design__1D114BD1");
             });
 
-            modelBuilder.Entity<Salary>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("salary");
-
-                entity.Property(e => e.Grade)
-                    .HasColumnName("grade")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.SalId).HasColumnName("salID");
-
-                entity.Property(e => e.Structure)
-                    .HasColumnName("structure")
-                    .HasColumnType("decimal(18, 0)");
-
-                entity.Property(e => e.Tax)
-                    .HasColumnName("tax")
-                    .HasColumnType("decimal(18, 0)");
-            });
+           
 
             OnModelCreatingPartial(modelBuilder);
         }
