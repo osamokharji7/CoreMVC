@@ -14,7 +14,9 @@ namespace dbBackend.Repositories
 
         }
         private masterContext context = new masterContext();
-        public static GeneralRepository<Employee> employeeRepository { get; set; }
+        public static GeneralRepository<Employee> employeeRepository { get; set; 
+        public static GeneralRepository<Designation> desgRepository { get; set; 
+}
         public void Dispose()
         {
             throw new NotImplementedException();

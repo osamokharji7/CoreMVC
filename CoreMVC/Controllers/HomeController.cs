@@ -50,12 +50,18 @@ namespace dbBackend.Controllers
         {
             return UoW.employeeRepository.GetTs();
         }
+
+        [HttpPost]
         public string GetEmployeeById([FromBody] HelperModels post_data)
         {
             //return JsonConvert.SerializeObject(post_data);
             return UoW.employeeRepository.GetTById(1);
         }
-
+        [HttpPost]
+        public string GetDesignations()
+        {
+            return UoW.desgRepository.GetTs();
+        }
         public IActionResult Index()
         {
              return View();
